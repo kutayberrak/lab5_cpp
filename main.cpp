@@ -40,13 +40,14 @@ string swap_letters(string str) {
 }
 
 
-bool search_letter(string source_str, char key_letter) {
-    for (char& c : source_str) {
-        if (c == key_letter) {
+bool search_letter(string source_str, string key_letter) {
+    char temp = key_letter[0];
+    for (int i = 0; i < source_str.length(); i++) {
+        if (source_str[i] == temp) {
             return true;
         }
+        return false;
     }
-    return false;
 }
 
 
@@ -62,8 +63,8 @@ int main() {
             string new_password = rep_with_upper(password);
             string swapped_password = swap_letters(new_password);
             cout << "Final version of the password: " << swapped_password << endl;
-            bool result = search_letter(password, 'k');
-            bool result2 = search_letter(password, 'K');
+            bool result = search_letter(password, "k");
+            bool result2 = search_letter(password, "K");
             if(result || result2){
                 cout<<"True"<<endl;
             }
